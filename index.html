@@ -17,7 +17,7 @@
 <body>
     <div id="app">
         <div class="card">
-            <h1>🦣 Mastodon Wraps {{new Date().getFullYear()}}</h1>
+            <h1>🦣 Mastodon Wraps {{new Date().getFullYear()}} #mastodonWraps25</h1>
             <p class="subtitle">Importiere alle deine Toots des letzten Jahres und erstelle dein <a href="https://joinmastodon.org/de">Mastodon</a> Wraps! Alle Toots werden lokal in deinem Browser gespeichert und verarbeitet. Das Tool ist mit allen ActivityPub-Software kompatibel, die mit der Mastodon-API kompatibel ist. Immer werden die Toots der letzten 365 Tage importiert und ausgewertet. Erstellt von <a href="https://hachyderm.io/@sabrinkmann" target="_blank">@sabrinkmann@hachyderm.io</a> und  <a href="https://norden.social/@54gradsoftware" target="_blank">@54gradsoftware@norden.social</a>. Veröffentlicht unter AGPL auf <a href="https://github.com/54GradSoftware/mastodon-wraps" target="_blank">GitHub.</a></p>
 
             <!-- Login-Formular -->
@@ -111,7 +111,6 @@
             <h2>🎉 Dein Mastodon Wrapped {{ new Date().getFullYear() }}</h2>
             <div class="wrapped-container" style="width: 100%;">
                 <div v-for="card in cardsList" :key="card" style="width: 100%; margin-bottom: 20px;">
-                    {{card}}
                     <canvas :id="'canvas-' + card" style="width: 100%;"></canvas>
                     <button class="download-btn" @click="downloadWrappedCard(card)">💾 Download</button>
                     <label :for="'example-alttext-' + card">Beispiel Alternativtext</label>
