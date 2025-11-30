@@ -85,7 +85,7 @@ createApp({
         const wrappedData = ref(null);
         const isGenerating = ref(false);
         const existingTootsCount = ref(0);
-        const cardsList = ref(['total', 'hashtags', 'activity', 'longest', 'words', 'timeofday', 'social', 'month']);
+        const cardsList = ref(['total','social', 'hashtags', 'activity', 'longest', 'words', 'timeofday', 'month']);
         const cardsValue = ref({});
 
 
