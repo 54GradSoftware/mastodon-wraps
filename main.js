@@ -695,7 +695,7 @@ createApp({
                         `🔗 ${wrappedData.value.totalLinks} Links geteilt`,
                         `🔒 ${wrappedData.value.privateToots} Private Toots`
                     ],
-                    altText: `In ${new Date().getFullYear()} hast du ${wrappedData.value.totalMentions} Erwähnungen gemacht, ${wrappedData.value.totalLinks} Links geteilt, ${wrappedData.value.boosts} Boosts durchgeführt und ${wrappedData.value.privateToots} private Toots gepostet.`
+                    altText: `In ${new Date().getFullYear()} hast du ${wrappedData.value.totalMentions} Erwähnungen gemacht, ${wrappedData.value.totalLinks} Links geteilt, ${wrappedData.value.totalReblogs} Reblogs erhalten, ${wrappedData.value.totalFavorites} Favoriten erhalten und ${wrappedData.value.privateToots} private Toots gepostet.`
                 },
                 month: {
                     gradient: ['#f093fb', '#f5576c'],
