@@ -440,7 +440,9 @@ createApp({
                     totalMentions: 0,
                     boosts: 0,
                     privateToots: 0,
-                    mostActiveMonth: { name: '', count: 0 }
+                    mostActiveMonth: { name: '', count: 0 },
+                    totalFavorites: 0,
+                    totalReblogs: 0
                 };
 
                 let totalChars = 0;
@@ -511,6 +513,10 @@ createApp({
                     else if (hour >= 18 && hour < 24) stats.timeDistribution.evening++;
                     else stats.timeDistribution.night++;
 
+                    // Favoriten zählen
+                    stats.totalFavorites += toot.favourites_count || 0;
+                    // Reblogs zählen
+                    stats.totalReblogs += toot.reblogs_count || 0;
 
                     // Hashtags
                     const hashtagRegex = /#(\w+)/g;
@@ -619,7 +625,12 @@ createApp({
                     header: header,
                     value: wrappedData.value.totalToots.toString(),
                     label: 'Toots gepostet',
-                    extraList: [`📝 ${wrappedData.value.avgLength} Ø Zeichen`, `🖼️ ${wrappedData.value.withMedia} mit Medien`, `💬 ${wrappedData.value.replies} Antworten`, `♻️ ${wrappedData.value.totalRetoots} Re-Toots`],
+                    extraList: [
+                        `📝 ${wrappedData.value.avgLength} Ø Zeichen`, 
+                        `🖼️ ${wrappedData.value.withMedia} mit Medien`, 
+                        `💬 ${wrappedData.value.replies} Antworten`, 
+                        `♻️ ${wrappedData.value.totalRetoots} Re-Toots`
+                        ],
                     altText: `Toots gepostet ${new Date().getFullYear()}, ${wrappedData.value.totalToots} Toots gepostet mit durchschnittlich ${wrappedData.value.avgLength} Zeichen. Davon hatten ${wrappedData.value.withMedia} Medien, ${wrappedData.value.replies} waren Antworten und ${wrappedData.value.totalRetoots} Re-Toots.`
                 },
                 hashtags: {
@@ -676,11 +687,12 @@ createApp({
                 social: {
                     gradient: ['#43e97b', '#38f9d7'],
                     header: header,
-                    value: `${wrappedData.value.totalMentions.toString()} 👥Erwähnungen`,
+                    value: `${wrappedData.value.totalMentions.toString()} 👥 Erwähnt`,
                     label: 'Sozial & Vernetzt',
                     extraList: [
-                        `🔗 ${wrappedData.value.boosts} Links geteilt`,
-                        `♻️ ${wrappedData.value.boosts} Boosts`,
+                        `⭐ ${wrappedData.value.totalFavorites} Favoriten erhalten`,
+                        `🔁 ${wrappedData.value.totalReblogs} Reblogs erhalten`,
+                        `🔗 ${wrappedData.value.totalLinks} Links geteilt`,
                         `🔒 ${wrappedData.value.privateToots} Private Toots`
                     ],
                     altText: `In ${new Date().getFullYear()} hast du ${wrappedData.value.totalMentions} Erwähnungen gemacht, ${wrappedData.value.totalLinks} Links geteilt, ${wrappedData.value.boosts} Boosts durchgeführt und ${wrappedData.value.privateToots} private Toots gepostet.`
